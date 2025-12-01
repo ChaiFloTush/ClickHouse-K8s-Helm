@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "task2.fullname" . }}-config
+data:
+  config.xml: |-
+    {{- tpl (.Files.Get "config.xml") . | nindent 4 }}
+
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "task2.fullname" . }}-users
+data:
+  users.xml: |-
+    {{- tpl (.Files.Get "users.xml") . | nindent 4 }}
+

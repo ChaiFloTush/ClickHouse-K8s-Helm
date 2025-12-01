@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "task2.fullname" . }}-service
+  labels:
+    {{- include "task2.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.httpPort }}
+      targetPort: {{ .Values.service.httpPort }}
+      name: http
+    - port: {{ .Values.service.nativePort }}
+      targetPort: {{ .Values.service.nativePort }}
+      name: native
+  selector:
+    {{- include "task2.selectorLabels" . | nindent 4 }}
