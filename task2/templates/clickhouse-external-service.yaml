@@ -16,4 +16,5 @@ spec:
       nodePort: 30124  # Порт в диапазоне 30000-32767
       name: native
   selector:
+
     {{- include "task2.selectorLabels" . | nindent 4 }}
