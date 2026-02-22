@@ -26,7 +26,7 @@ strategy:
 # This is for setting up a service 
 service:
   # This sets the service type more
-  type: NodePort
+  type: ClusterIP
   # This sets the ports 
   httpPort: 8123
   nativePort: 9000
